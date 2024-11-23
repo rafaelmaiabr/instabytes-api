@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { getAllPosts, postNewPost, uploadImage, updatedNewPost } from "../controllers/postController.js";
+import { getPosts, postNewPost, uploadImage, updatedNewPost } from "../controllers/postController.js";
 import cors from "cors";
 
 const corsOptions = {
@@ -19,14 +19,14 @@ const storage = multer.diskStorage({
 });
 
 // Ambiente linux não precisa do rack "storage"
-const upload = multer({ dest: "./uploads", storage });
+const upload = multer({ storage: storage });
 
 const routes = (app) => {
   
   app.use(express.json());
   app.use(cors(corsOptions));
   
-  app.get("/posts", getAllPosts);
+  app.get("/posts", getPosts);
   app.post("/posts", postNewPost);
   app.post("/upload", upload.single("image"), uploadImage);
   app.put("/upload/:id", updatedNewPost);

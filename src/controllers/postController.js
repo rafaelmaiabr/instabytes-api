@@ -2,9 +2,7 @@ import {getAllPosts, createPost, updatePost} from "../models/postsModel.js";
 import fs from "fs";
 import createDescriptionByGemini from "../services/geminiService.js";
 
-export { getAllPosts };
-
-export async function fetchAllPosts(req, res) {
+export async function getPosts(req, res) {
   const posts = await getAllPosts();
   res.status(200).json(posts);
 }
