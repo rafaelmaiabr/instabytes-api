@@ -1,0 +1,7 @@
+### Lista os Posts
+GET http://localhost:3000/posts HTTP/1.1
+
+### Lista post por id
+GET http://localhost:3000/posts/3 HTTP/1.1
+
+
