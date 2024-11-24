@@ -36,7 +36,7 @@ export async function uploadImage(req, res) {
   }
 }
 
-export async function updatedNewPost(req, res) {
+export async function updateNewPost(req, res) {
   const id = req.params.id;
   const urlImage = `http://localhost:3000/${id}.png`;
   try {
@@ -45,7 +45,7 @@ export async function updatedNewPost(req, res) {
 
     const post = {
       imageUrl: urlImage,
-      description: req.body.description,
+      description: description,
       alt: req.body.alt
     }
 
